@@ -2,12 +2,16 @@ import { useContext } from "react";
 import UserContext from "../context/UserContext";
 
 const ItemModify = () => {
-  const { quantity } = useContext(UserContext);
+  const { quantity, setQuantity } = useContext(UserContext);
+
+  const handleAdd = () => {
+    setQuantity(quantity + 1);
+  }
 
   return (
     <div className="text-center">
       {quantity === 0 ? (
-        <button className="border rounded-md px-4 py-2 text-lg text-center bg-blue-400 text-white w-full mt-3">
+        <button className="border rounded-md px-4 py-2 text-lg text-center bg-blue-400 text-white w-full mt-3" onClick={handleAdd}>
           &#43; Add To Cart
         </button>
       ) : (
@@ -17,7 +21,7 @@ const ItemModify = () => {
               -
             </button>
             <div className="mx-2">Items in Cart</div>
-            <button className="border rounded-md px-2 py-1 text-2xl text-center bg-blue-400 text-white">
+            <button className="border rounded-md px-2 py-1 text-2xl text-center bg-blue-400 text-white" >
               +
             </button>
           </div>
