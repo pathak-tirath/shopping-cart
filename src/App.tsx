@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, About, Store } from "./pages";
 import NavBar from "./components/NavBar";
+import UserContext from "./context/UserContext";
+
 const App:React.FC = () => {
+  const [quantity,setQuantity] = useState(0)
   return (
-    <>
+    <UserContext.Provider value={{quantity,setQuantity}}>
     <NavBar handleBarOpen={function (): void {
         throw new Error("Function not implemented.");
       } } />
@@ -15,7 +18,7 @@ const App:React.FC = () => {
         <Route path="/store" element={<Store />} />
       </Routes>
     </div>
-    </>
+    </UserContext.Provider>
   );
 };
 
