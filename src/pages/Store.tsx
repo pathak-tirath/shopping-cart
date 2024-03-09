@@ -1,7 +1,7 @@
 import storeItems from "../data/items.json";
 
 import StoreItem from "../components/StoreItem";
-import ItemModify from "../components/ItemModify";
+
 
 const Store = () => {
   return (
@@ -12,7 +12,7 @@ const Store = () => {
           return (
             <div key={item.id} className="mt-2 md:flex md:flex-col md:mr-14 gap-2">
               <StoreItem {...item} />
-              <ItemModify />
+              
             </div>
           );
         })}

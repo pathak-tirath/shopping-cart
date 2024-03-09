@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import UserContext from "./context/UserContext";
 
 const App:React.FC = () => {
-  const [quantity,setQuantity] = useState(0)
+  const [quantity,setQuantity] = useState([{id:0, value:0}])
   return (
     <UserContext.Provider value={{quantity,setQuantity}}>
     <NavBar handleBarOpen={function (): void {

@@ -1,14 +1,17 @@
 import { createContext } from "react";
 
 type UserContextProps = {
-    quantity: number,
-    setQuantity: React.Dispatch<React.SetStateAction<number>>
-}
-
-const initialUserContextValue: UserContextProps = {
-    quantity: 0,
-    setQuantity: () => {}
+  quantity: { id: number; value: number }[];
+  setQuantity: React.Dispatch<React.SetStateAction<{
+    id: number;
+    value: number;
+}[]>>;
 };
 
-const UserContext = createContext<UserContextProps>(initialUserContextValue)
+const initialUserContextValue: UserContextProps = {
+  quantity: [{ id: 0, value: 0 }],
+  setQuantity: () => {},
+};
+
+const UserContext = createContext<UserContextProps>(initialUserContextValue);
 export default UserContext;
