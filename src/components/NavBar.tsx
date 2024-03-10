@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import cart from "../../public/assets/shopping.svg";
 import { NavLink } from "react-router-dom";
 import bars from "../../public/assets/bars.svg";
+import UserContext from "../context/UserContext";
 
 interface NavProps {
   handleBarOpen: () => void;
@@ -11,6 +12,10 @@ const NavBar: React.FC<NavProps> = () => {
   const handleBarOpen = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const {quantity} = useContext(UserContext)
+  let count = 0
+  quantity.map(thisId => count += thisId.value)
+  
   return (
     <div className="bg-yellow-100 sticky top-0">
       <div className="flex justify-between py-6 px-16 w-full items-center  ">
@@ -33,7 +38,7 @@ const NavBar: React.FC<NavProps> = () => {
             className="w-12 rounded-2xl bg-[#192841] opacity-45 border border-[#192841] p-2 text-center hover:bg-[#192841] hover:opacity-100 hover:cursor-pointer"
           />
           <div className="absolute bottom-0 right-0 translate-x-[25%] translate-y-[25%] w-7 h-7 border rounded-full bg-red-400 text-center font-bold text-white max-[400px]:w-5 max-[400px]:h-5 max-[400px]:text-center max-[400px]:text-xs">
-            1
+            {count}
           </div>
         </div>
       </div>
