@@ -12,7 +12,6 @@ const Store = () => {
           return (
             <div key={item.id} className="mt-2 md:flex md:flex-col md:mr-14 gap-2">
               <StoreItem {...item} />
-              
             </div>
           );
         })}

@@ -2,7 +2,7 @@
 interface FormatProps{
     price:number
 }
-const FormatCurrency:React.FC<FormatProps> = ({price}) => {
+export const FormatCurrency:React.FC<FormatProps> = ({price}) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -10,4 +10,4 @@ const FormatCurrency:React.FC<FormatProps> = ({price}) => {
   return formatter.format(price);
 };
 
-export default FormatCurrency;
+

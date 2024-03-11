@@ -1,5 +1,5 @@
 import React from "react";
-import FormatCurrency from "../utils/FormatCurrency";
+import {FormatCurrency} from "../utils/FormatCurrency";
 import ItemModify from "./ItemModify";
 
 type storageItemProps = {
@@ -9,6 +9,8 @@ type storageItemProps = {
   imgUrl: string;
 };
 const StoreItem: React.FC<storageItemProps> = ({ id, name, imgUrl, price }) => {
+  const formattedPrice = FormatCurrency({price})
+ 
   return (
     <>
       <div className="mt-6">
@@ -16,11 +18,11 @@ const StoreItem: React.FC<storageItemProps> = ({ id, name, imgUrl, price }) => {
         <div className="flex justify-between mt-2">
           <div>{name}</div>
           <div>
-            <FormatCurrency price={price} />
+          {formattedPrice}
           </div>
         </div>
       </div>
-      <ItemModify id={id} />
+      <ItemModify id={id} name={name} imgUrl={imgUrl} price={price} />
     </>
   );
 };

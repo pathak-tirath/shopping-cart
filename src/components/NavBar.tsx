@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import cart from "../../public/assets/shopping.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import bars from "../../public/assets/bars.svg";
 import UserContext from "../context/UserContext";
 
@@ -8,14 +8,21 @@ interface NavProps {
   handleBarOpen: () => void;
 }
 const NavBar: React.FC<NavProps> = () => {
+  const navigate = useNavigate();
+
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
   const handleBarOpen = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  const {quantity} = useContext(UserContext)
-  let count = 0
-  quantity.map(thisId => count += thisId.value)
-  
+  const { quantity } = useContext(UserContext);
+  let count = 0;
+  quantity.map((thisId) => (count += thisId.value));
+
+  const onCartClick = () => {
+    navigate("/cart");
+  };
+
   return (
     <div className="bg-yellow-100 sticky top-0">
       <div className="flex justify-between py-6 px-16 w-full items-center  ">
@@ -31,7 +38,7 @@ const NavBar: React.FC<NavProps> = () => {
           <NavLink to={"/about"}>About</NavLink>
         </div>
 
-        <div className="flex relative">
+        <div className="flex relative" onClick={onCartClick}>
           <img
             src={cart}
             alt="cart"
