@@ -35,7 +35,7 @@ const NavBar: React.FC<NavProps> = () => {
           />
           <NavLink to={"/"}>Home</NavLink>
           <NavLink to={"/store"}>Store</NavLink>
-          {/* <NavLink to={"/about"}>About</NavLink> */}
+          <NavLink to={"/about"}>About</NavLink>
         </div>
 
         <div className="flex relative" onClick={onCartClick}>

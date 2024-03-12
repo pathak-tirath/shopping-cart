@@ -15,7 +15,7 @@ const App:React.FC = () => {
     <div className="px-16 bg-orange-50 h-full">
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/about" element={<About />} />
         <Route path="/store" element={<Store />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
